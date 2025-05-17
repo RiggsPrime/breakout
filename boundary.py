@@ -2,16 +2,9 @@ import pygame
 from rectangle import Rectangle
 from constants import *
 
-class Ball(Rectangle):
+class Boundary(Rectangle):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
 
     def draw(self, screen):
         pygame.draw.rect(screen, "white", self.rect)
-
-    def update(self, dt):
-        if self.rect.x <= 1280 - BALL_WIDTH:
-            self.move(dt)
-        
-    def move(self, dt):
-        self.rect.x += BALL_SPEED * dt

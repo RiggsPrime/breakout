@@ -10,7 +10,7 @@ class Rectangle(pygame.sprite.Sprite):
         self.velocity = pygame.Vector2(0,0)
         self.area = self.width * self.height
 
-        # just use this I guess?
+        # this will draw a rect using it's position as the top left corner
         self.rect = pygame.Rect(self.position.x, self.position.y, self.width, self.height)
 
     def draw(self, screen):
