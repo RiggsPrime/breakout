@@ -12,9 +12,9 @@ class Player(Rectangle):
     def update(self, dt):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_a] and self.rect.x > 0:
+        if keys[pygame.K_a] and self.rect.x > BOUNDARY_LEFT_X + BOUNDARY_WIDTH:
             self.move(-dt)
-        if keys[pygame.K_d] and self.rect.x <= 1280 - PLAYER_WIDTH:
+        if keys[pygame.K_d] and self.rect.x <= BOUNDARY_RIGHT_X - PLAYER_WIDTH:
             self.move(dt)
 
     def move(self, dt):

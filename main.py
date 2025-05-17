@@ -8,6 +8,16 @@ from rectangle import Rectangle
 from ball import Ball
 from boundary import Boundary
 
+def ball_collisions(ball, boundary_right, boundary_left, player, boundary_top):
+    if ball.collision_check(boundary_right) == True:
+        ball.velocity.x = -1
+    if ball.collision_check(boundary_left) == True:
+        ball.velocity.x = 1
+    if ball.collision_check(player) == True:
+        ball.velocity.y = -1
+    if ball.collision_check(boundary_top) == True:
+        ball.velocity.y = 1
+
 def main():
     pygame.init()
     pygame.font.init()
@@ -35,6 +45,7 @@ def main():
         boundary_top.draw(screen)
         player.update(dt)
         ball.update(dt)
+        ball_collisions(ball, boundary_right, boundary_left, player, boundary_top)
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000

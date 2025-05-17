@@ -20,5 +20,5 @@ class Rectangle(pygame.sprite.Sprite):
         pass
 
     def collision_check(self, other_shape):
-        pass
+        return pygame.Rect.colliderect(self.rect, other_shape.rect)
         
